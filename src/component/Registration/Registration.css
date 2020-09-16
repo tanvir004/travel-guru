@@ -1,0 +1,26 @@
+.loginItem{
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 30px;
+    text-align: center;
+}
+.loginBtn{
+    width: 80%;
+    color: #F9A51A;
+}
+.thirdBtnArea{
+    color: white;
+    text-align: center;
+}
+.thirdPartyLgBtn{
+    width: 80%;
+    background-color: linear-gradient(rgba(0, 0, 0, 0.5));
+    color: black;
+    border: white;
+    border-radius: 20px;
+}
+.icon{
+    width:30px
+}
