@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './component/Header/Header';
@@ -21,23 +21,19 @@ import SundarbanBooking from './component/SundarbanBooking/SundarbanBooking';
 import SreemangalHotels from './component/SreemangalHotels/SreemangalHotels';
 import SundarbanHotels from './component/SundarbanHotels/SundarbanHotels';
 
-function App() {
-  return (
-    //  eifula eikhane call korcen keno? dekhar jonne korechilam r header ta to show koratei hobe taiok wait koren
-      // <div>
-      //<Header></Header>
-      //   <Home></Home>
-      //   <Login></Login>
-      //   <CoxHotel></CoxHotel>
-      //   <Registration></Registration>
-      
 
-// thik ace? ji vai login ta ki kaj kore ekhn?hmm
-// thik ace? ji vai, baki gula to same vabei dile hobe taina?. mone koren navbar holo global ,eijonno navbar sobsomoy router er vitor hobe kintu switch er baire. ar jegula route kore niye jaben oigula switch er vetor route kore path diye dilei hobe.ok vaiyhik ace
-//  ok bye vaia, ok vaia thank useRouteMatch// apnar header e ki navbar? ji ooo wait koren
+
+function App() {
+
+ 
+  return (
+    
+
+
+<div>
         <Router>
           <Header></Header>
-          {/* <Home></Home> */}
+          
         <Switch>
          
           <Route path="/login">
@@ -78,7 +74,8 @@ function App() {
          
         </Switch>
       </Router>
-      // </div>
+     
+      </div>
 
       
 

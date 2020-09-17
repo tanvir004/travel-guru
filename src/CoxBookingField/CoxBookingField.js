@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './CoxBookingField.css'
 
 const CoxBookingField = () => {
+    const [book, setBook] = useState([]);
+    const [bookPlaced, setBookPlaced] = useState(false);
+    const history = useHistory();
+
+    const handleStartBooking = () => {
+        history.push('/coxhotels');
+    }
+
     return (
         <Container>
             <Row>

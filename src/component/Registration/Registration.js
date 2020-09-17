@@ -4,7 +4,6 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 
-
 const Registration = () => {
     const [user, setUser] = useState({
         isSignedIn: false,
@@ -15,6 +14,7 @@ const Registration = () => {
         success: false,
         newUser: false
       })
+    //   console.log(user)
 
 
     const handleChange = (e) => {
@@ -49,6 +49,7 @@ const Registration = () => {
                 newUserInfo.error = '';
                 newUserInfo.success = true;
                 setUser(newUserInfo);
+                updateUserInfo(user)
                 
             })
             .catch(function(error) {
@@ -62,6 +63,20 @@ const Registration = () => {
         }
         e.preventDefault();
 
+    }
+
+    const updateUserInfo = (user) => {
+        var userInfo = firebase.auth().currentUser;
+
+        userInfo.updateProfile({
+            displayName: user.name,
+            password: user.password
+        })
+        .then(function(){
+
+        }).catch(function(error){
+
+        })
     }
 
 
@@ -93,10 +108,10 @@ const Registration = () => {
       </Form.Group>
 
       <Form.Group controlId="formBasicPassword">
-      <Form.Control name="password" type="text" onBlur={handleChange} placeholder="Password" required />
+      <Form.Control name="password" type="password" onBlur={handleChange} placeholder="Password" required />
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
-      <Form.Control name="confirmPass" type="text" onBlur={handleChange} placeholder="Confirm Password" required />
+      <Form.Control name="confirmPass" type="password" onBlur={handleChange} placeholder="Confirm Password" required />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
      <Form.Check type="checkbox" label="Remember me" />

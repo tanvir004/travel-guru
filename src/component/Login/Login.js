@@ -6,17 +6,33 @@ import './Login.css'
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
+firebase.initializeApp(firebaseConfig);
+
 
 
 const Login = () => {
-  // const [loginUser, setLoginUser] = useState({
-  //   email: '',
-  //   password: '',
-  //   error:''    
-  // })
+  const [user, setUser] = useState({
+    name: '',
+    email: '',
+  })
+  console.log(user)
+  //
+  const [loginUser, setLoginUser] = useState({
+    email: '',
+    password: '',
+    error:''    
+  })
+  // console.log(loginUser)
+
+  const handleInputChange = (e) => {
+    const newUser = {...loginUser}
+    newUser[e.target.name] = e.target.value
+    setLoginUser(newUser)
+  }
+  //
 
   
-    firebase.initializeApp(firebaseConfig);
+    // firebase.initializeApp(firebaseConfig);
     const handelGoogleSignIn = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -60,15 +76,37 @@ const Login = () => {
 
     }
 
-  //   const handleLoginSubmit = () => {
-  //     firebase.auth().createUserWithEmailAndPassword(loginUser.email, loginUser.password).catch(function(error) {
-  //       // Handle Errors here.
-  //       var errorCode = error.code;
-  //       var errorMessage = error.message;
-  //       // ...
-  //     });
+    const handleLogin = (e) => {
+      firebase.auth().signInWithEmailAndPassword(loginUser.email, loginUser.password)
+      .then(data => {
+        const userInfo = {
+          name: data.user.displayName,
+          email: data.user.email,
+        }
+        setUser(userInfo)
+        console.log(data)
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ...
+      });
+      e.preventDefault()
+    }
+
+  //
+      // const handleLoginSubmit = () => {
+      // firebase.auth().createUserWithEmailAndPassword(loginUser.email, loginUser.password)
+      // .catch(function(error) {
+      //   // Handle Errors here.
+      //   var errorCode = error.code;
+      //   var errorMessage = error.message;
+      //   // ...
+      // });
 
   // }
+  //
     return (
 
         <section>
@@ -83,18 +121,18 @@ const Login = () => {
     <Form>
     <h1>Login</h1>
         <Form.Group controlId="formBasicEmail">
-       <Form.Control type="email" placeholder="username or email" />
+       <Form.Control onChange={handleInputChange} type="email" name="email" placeholder="username or email" />
        <Form.Text className="text-muted">
        </Form.Text>
       </Form.Group>
 
       <Form.Group controlId="formBasicPassword">
-      <Form.Control type="password" placeholder="Password" />
+      <Form.Control onChange={handleInputChange} type="password" name="password" placeholder="Password" />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
      <Form.Check type="checkbox" label="Remember me" />
      </Form.Group>
-     <Button variant="warning" className="loginBtn" type="submit">login</Button>
+     <Button onClick={handleLogin} variant="warning" className="loginBtn" type="submit">login</Button>
      <p>Don't have an account? <Link to="registration"><a href="/registration">create account</a></Link> </p>
   </Form>
     </div>
