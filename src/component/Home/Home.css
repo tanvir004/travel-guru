@@ -1,0 +1,19 @@
+.cardImg{
+    width: 30%;
+}
+.cardItem{
+    
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+  
+}
+.card{
+  border: 1px solid grey;
+  box-shadow: 5px 10px grey;
+}
+.cardItem img{
+    margin: auto;
+    height: 300px;
+    padding: 10px;
+}

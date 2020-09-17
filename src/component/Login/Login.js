@@ -4,6 +4,9 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import './Login.css'
 import { Row, Col, Form, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+
+
 
 const Login = () => {
   // const [loginUser, setLoginUser] = useState({
@@ -92,7 +95,7 @@ const Login = () => {
      <Form.Check type="checkbox" label="Remember me" />
      </Form.Group>
      <Button variant="warning" className="loginBtn" type="submit">login</Button>
-     <p>Don't have an account? <a>create account</a></p>
+     <p>Don't have an account? <Link to="registration"><a href="/registration">create account</a></Link> </p>
   </Form>
     </div>
             <div className="thirdBtnArea">
