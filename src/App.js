@@ -20,6 +20,7 @@ import SreemangalBooking from './component/SreemangalBooking/SreemangalBooking';
 import SundarbanBooking from './component/SundarbanBooking/SundarbanBooking';
 import SreemangalHotels from './component/SreemangalHotels/SreemangalHotels';
 import SundarbanHotels from './component/SundarbanHotels/SundarbanHotels';
+import PrivateRoute from './component/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
@@ -39,7 +40,7 @@ function App() {
 <UserContext.Provider value ={[loggedInUser, setLoggedInUser]}>
   
         <Router>
-        <h3 style={{color:'white'}}>user:{loggedInUser.email}</h3>
+        <p style={{color:'#ffc107'}}><img className="userLogo" src="https://png.pngtree.com/png-vector/20190321/ourmid/pngtree-vector-users-icon-png-image_856952.jpg" alt=""/>{loggedInUser.email}</p>
           <Header></Header>
           
         <Switch>
@@ -62,21 +63,21 @@ function App() {
           <Route path="/coxbookingfield">
             <CoxBookingField></CoxBookingField>
           </Route>
-          <Route path="/coxhotels">
+          <PrivateRoute path="/coxhotels">
             <CoxHotel></CoxHotel>
-          </Route>
+          </PrivateRoute>
           <Route path="/sreemangalbooking">
             <SreemangalBooking></SreemangalBooking>
           </Route>
           <Route path="/sundarbanbooking">
             <SundarbanBooking></SundarbanBooking>
           </Route>
-          <Route path="/sreemangalhotels">
+          <PrivateRoute path="/sreemangalhotels">
             <SreemangalHotels></SreemangalHotels>
-          </Route>
-          <Route path="/sundarbanhotels">
+          </PrivateRoute>
+          <PrivateRoute path="/sundarbanhotels">
             <SundarbanHotels></SundarbanHotels>
-          </Route>
+          </PrivateRoute>
           
           
          

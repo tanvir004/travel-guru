@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Button } from "react-bootstrap";
+import { useHistory } from 'react-router-dom';
 import './Sreemangal.css'
 
 const Sreemangal = () => {
@@ -30,6 +31,8 @@ const Sreemangal = () => {
                 </Col>
                 
             <Col sm={6}>
+
+                
             
             </Col>
             </Row>

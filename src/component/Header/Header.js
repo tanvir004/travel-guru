@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Nav, Navbar, NavItem, Form, FormControl, Button } from "react-bootstrap";
 import './Header.css'
 import {
@@ -9,9 +9,12 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
+import { UserContext } from '../../App';
 
 
 const Header = () => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
     return (
         <div>
             
@@ -24,7 +27,9 @@ const Header = () => {
       <Nav.Link style={{color:'white'}} href="#features">Booking</Nav.Link>
       <Link to="/news"><Nav.Link style={{color:'white'}} href="/news">News</Nav.Link></Link>
       
-      <Link to="/login"><Button variant="warning">Login</Button></Link>
+      <Link style={{padding:'5px'}} to="/login"><Button variant="warning">Login</Button></Link>
+      <Link style={{padding:'5px'}}><Button onClick={() =>setLoggedInUser({})} variant="warning">Signout</Button></Link>
+      
     </Nav>
       </Navbar>
  

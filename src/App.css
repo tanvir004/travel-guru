@@ -32,6 +32,10 @@ body{
   
   
 }
+.userLogo{
+  width: 3%;
+  border-radius: 50%;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -8,3 +8,11 @@
     margin: 10px;
     padding: 10px;
 }
+.mapArea{
+    border: 2px solid white;
+    border-radius: 8px;
+}
+.mapText{
+    color: goldenrod;
+    text-align: center;
+}

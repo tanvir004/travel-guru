@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,13 +8,16 @@ import {
     useHistory,
     useLocation
   } from "react-router-dom";
+import { UserContext } from '../../App';
 
 const PrivateRoute = ({children, ...rest}) => {
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
     return (
         <Route
         {...rest}
         render={({ location }) =>
-          fakeAuth.isAuthenticated ? (
+          loggedInUser.email ? (
             children
           ) : (
             <Redirect

@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './SreemangalBooking.css'
 
 const SreemangalBooking = () => {
+    const [book, setBook] = useState([]);
+    const [bookPlaced, setBookPlaced] = useState(false);
+    const history = useHistory();
+
+    const handleStartBooking = () => {
+        history.push('/sreemangalhotels');
+    }
     return (
         <Container>
             <Row>
@@ -26,7 +33,7 @@ const SreemangalBooking = () => {
              <input type="date" name="from" id="from" required/>
              <Form.Label>To</Form.Label>
              <input type="date" name="from" id="from" required/></Form.Group>
-             <Link to='/sreemangalhotels'><Button variant="warning" type="submit">Start Booking</Button></Link>
+             <Button onClick={handleStartBooking} variant="warning" type="submit">Start Booking</Button>
           
          
 </Form>

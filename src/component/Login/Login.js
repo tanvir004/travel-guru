@@ -4,7 +4,7 @@ import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import './Login.css'
 import { Row, Col, Form, Button } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 
 firebase.initializeApp(firebaseConfig);
@@ -25,6 +25,9 @@ const Login = () => {
   });
   // console.log(loginUser)
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+  const history = useHistory();
+  const location = useLocation();
+  let { from } = location.state || { from: { pathname: "/" } };
 
 
   const handleInputChange = (e) => {
@@ -45,7 +48,9 @@ const Login = () => {
             const {displayName, email} = result.user;
             const signedInUser = {name: displayName, email}
             console.log(signedInUser)
+            setLoggedInUser(signedInUser);
             console.log("login successfully");
+            history.replace(from);
             // ...
           }).catch(function(error) {
             // Handle Errors here.
@@ -66,7 +71,9 @@ const Login = () => {
             // The signed-in user info.
             var user = result.user;
             console.log(user);
+            setLoggedInUser(user);
             console.log("login successfully");
+            history.replace(from);
             // ...
           }).catch(function(error) {
             // Handle Errors here.
@@ -92,6 +99,7 @@ const Login = () => {
         console.log(data)
         setLoggedInUser(userInfo);
         console.log("login successfully");
+        history.replace(from);
       })
       .catch(function(error) {
         // Handle Errors here.
