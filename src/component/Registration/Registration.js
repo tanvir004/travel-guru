@@ -92,10 +92,7 @@ const Registration = () => {
     <div className="loginItem">
     <Form onSubmit ={handleSubmit}>
     <h1>Registration</h1>
-    {/* <p>Name: {user.name}</p>
-    <p>email: {user.email}</p>
-    <p>password: {user.password}</p> */}
-        {/* <input type="checkbox" name="newUser" id=""/> */}
+
         <Form.Group controlId="formBasicEmail">   
        <Form.Control name="email" type="email" onBlur={handleChange} placeholder="username or email" required />
        <Form.Text className="text-muted">
@@ -119,15 +116,10 @@ const Registration = () => {
      <Button variant="warning" className="loginBtn" type="submit" onClick={handleSubmit}>Creat Account</Button>
     <p style={{color: 'red'}}>{user.error}</p>
     {user.success && <p style={{color: 'green'}}>User created Successfully</p>}
-     {/* <p>Don't have an account? <a>create account</a></p> */}
+     
   </Form>
     </div>
             <div className="thirdBtnArea">
-            <p>_________________or_________________</p>
-            <img className="icon" src="https://i.ibb.co/5hvrqYB/google.png" alt=""/>
-            <button className="thirdPartyLgBtn">Google sign in</button><br/>
-            <img className="icon" src="https://i.ibb.co/Rz5bW2t/fb.png" alt=""/>
-            <button className="thirdPartyLgBtn">Facebook sign in</button>
             </div>
                 </Col>
                <Col xs={6} md={4}>

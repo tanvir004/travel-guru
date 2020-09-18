@@ -35,10 +35,7 @@ const Login = () => {
     newUser[e.target.name] = e.target.value
     setLoginUser(newUser)
   }
-  //
-
-  
-    // firebase.initializeApp(firebaseConfig);
+ 
     const handelGoogleSignIn = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function(result) {
@@ -110,18 +107,7 @@ const Login = () => {
       e.preventDefault()
     }
 
-  //
-      // const handleLoginSubmit = () => {
-      // firebase.auth().createUserWithEmailAndPassword(loginUser.email, loginUser.password)
-      // .catch(function(error) {
-      //   // Handle Errors here.
-      //   var errorCode = error.code;
-      //   var errorMessage = error.message;
-      //   // ...
-      // });
 
-  // }
-  //
     return (
 
         <section>
@@ -136,13 +122,13 @@ const Login = () => {
     <Form>
     <h1>Login</h1>
         <Form.Group controlId="formBasicEmail">
-       <Form.Control onChange={handleInputChange} type="email" name="email" placeholder="username or email" />
+       <Form.Control onChange={handleInputChange} type="email" name="email" placeholder="username or email" required />
        <Form.Text className="text-muted">
        </Form.Text>
       </Form.Group>
 
       <Form.Group controlId="formBasicPassword">
-      <Form.Control onChange={handleInputChange} type="password" name="password" placeholder="Password" />
+      <Form.Control onChange={handleInputChange} type="password" name="password" placeholder="Password" required />
       </Form.Group>
       <Form.Group controlId="formBasicCheckbox">
      <Form.Check type="checkbox" label="Remember me" />
