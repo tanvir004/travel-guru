@@ -21,6 +21,8 @@ import SundarbanBooking from './component/SundarbanBooking/SundarbanBooking';
 import SreemangalHotels from './component/SreemangalHotels/SreemangalHotels';
 import SundarbanHotels from './component/SundarbanHotels/SundarbanHotels';
 import PrivateRoute from './component/PrivateRoute/PrivateRoute';
+import Blog from './component/Blog/Blog';
+import NotFound from './component/NotFound/NotFound';
 
 export const UserContext = createContext();
 
@@ -60,6 +62,12 @@ function App() {
           <Route path="/news">
             <News></News>
           </Route>
+          <Route path="/blog">
+            <Blog></Blog>
+          </Route>
+          {/* <Route path="*">
+            <NotFound></NotFound>
+          </Route> */}
           <Route path="/coxbookingfield">
             <CoxBookingField></CoxBookingField>
           </Route>

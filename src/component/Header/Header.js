@@ -24,7 +24,7 @@ const Header = () => {
       <FormControl type="text" placeholder="Search Your Destination" className="mr-sm-2" />
       <Link to="/home"><Nav.Link style={{color:'white'}} href="/home">Home</Nav.Link></Link>
       
-      <Nav.Link style={{color:'white'}} href="#features">Booking</Nav.Link>
+      <Link to="blog"><Nav.Link style={{color:'white'}} href="#features">Blog</Nav.Link></Link>
       <Link to="/news"><Nav.Link style={{color:'white'}} href="/news">News</Nav.Link></Link>
       
       <Link style={{padding:'5px'}} to="/login"><Button variant="warning">Login</Button></Link>

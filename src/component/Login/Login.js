@@ -148,7 +148,7 @@ const Login = () => {
      <Form.Check type="checkbox" label="Remember me" />
      </Form.Group>
      <Button onClick={handleLogin} variant="warning" className="loginBtn" type="submit">login</Button>
-     <p>Don't have an account? <Link to="registration"><a href="/registration">create account</a></Link> </p>
+     <p>Don't have an account? <Link to="registration"><a style={{color:'orange'}} href="/registration">create account</a></Link> </p>
   </Form>
     </div>
             <div className="thirdBtnArea">
