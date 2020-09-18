@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import './Login.css'
 import { Row, Col, Form, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -21,8 +22,10 @@ const Login = () => {
     email: '',
     password: '',
     error:''    
-  })
+  });
   // console.log(loginUser)
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+
 
   const handleInputChange = (e) => {
     const newUser = {...loginUser}
@@ -42,6 +45,7 @@ const Login = () => {
             const {displayName, email} = result.user;
             const signedInUser = {name: displayName, email}
             console.log(signedInUser)
+            console.log("login successfully");
             // ...
           }).catch(function(error) {
             // Handle Errors here.
@@ -62,6 +66,7 @@ const Login = () => {
             // The signed-in user info.
             var user = result.user;
             console.log(user);
+            console.log("login successfully");
             // ...
           }).catch(function(error) {
             // Handle Errors here.
@@ -85,6 +90,8 @@ const Login = () => {
         }
         setUser(userInfo)
         console.log(data)
+        setLoggedInUser(userInfo);
+        console.log("login successfully");
       })
       .catch(function(error) {
         // Handle Errors here.

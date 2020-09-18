@@ -34,7 +34,7 @@ const CoxBookingField = () => {
              <input type="date" name="from" id="from" required/>
              <Form.Label>To</Form.Label>
              <input type="date" name="from" id="from" required/></Form.Group>
-             <Link to='/coxhotels'><Button variant="warning" type="submit">Start Booking</Button></Link>
+             <Button onClick={handleStartBooking} variant="warning" type="submit">Start Booking</Button>
           
          
 </Form>

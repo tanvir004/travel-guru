@@ -21,17 +21,25 @@ import SundarbanBooking from './component/SundarbanBooking/SundarbanBooking';
 import SreemangalHotels from './component/SreemangalHotels/SreemangalHotels';
 import SundarbanHotels from './component/SundarbanHotels/SundarbanHotels';
 
+export const UserContext = createContext();
+
+
 
 
 function App() {
+  
+  const [loggedInUser, setLoggedInUser] = useState({});
+
 
  
   return (
     
 
 
-<div>
+<UserContext.Provider value ={[loggedInUser, setLoggedInUser]}>
+  
         <Router>
+        <h3 style={{color:'white'}}>user:{loggedInUser.email}</h3>
           <Header></Header>
           
         <Switch>
@@ -75,7 +83,7 @@ function App() {
         </Switch>
       </Router>
      
-      </div>
+      </UserContext.Provider>
 
       
 
